@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Visibility Intelligence Reports v2 | Brandpoint</title>
+    <style>
+        :root {
+            --bp-orange: #f7941d;
+            --bp-orange-dark: #D4551A;
+            --bp-blue: #0066b3;
+            --bp-blue-light: #e8f4fd;
+            --bp-dark: #1a1a2e;
+            --text-primary: #212529;
+            --text-secondary: #6c757d;
+            --bg-light: #f8f9fa;
+            --border-color: #dee2e6;
+            --success: #28a745;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--bg-light);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: white;
+            border-bottom: 3px solid var(--bp-blue);
+            padding: 1.5rem 0;
+            text-align: center;
+        }
+
+        .header-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .header-brand span:first-child { color: var(--bp-blue); }
+        .header-brand span:last-child { color: var(--bp-orange); }
+
+        .header h1 {
+            font-size: 2rem;
+            color: var(--bp-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .header p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .version-badge {
+            display: inline-block;
+            background: var(--bp-blue);
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            background: white;
+            padding: 1.25rem;
+            border-radius: 8px;
+            margin: -1.5rem auto 2rem;
+            max-width: 700px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            position: relative;
+            z-index: 10;
+        }
+
+        .stat { text-align: center; }
+        .stat-value { font-size: 1.8rem; font-weight: 700; color: var(--bp-blue); }
+        .stat-label { font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+
+        .section-title {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            color: var(--bp-dark);
+            border-bottom: 3px solid var(--bp-orange);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 3rem;
+        }
+
+        .brand-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.25rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border-left: 4px solid var(--bp-blue);
+        }
+
+        .brand-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .brand-name { font-size: 1.15rem; font-weight: 600; color: var(--bp-dark); }
+
+        .vqs-badge {
+            padding: 0.2rem 0.6rem;
+            border-radius: 16px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .vqs-excellent { background: #d4edda; color: #155724; }
+        .vqs-good { background: #cce5ff; color: #004085; }
+        .vqs-moderate { background: #fff3cd; color: #856404; }
+        .vqs-low { background: #f8d7da; color: #721c24; }
+
+        .brand-meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+
+        .report-links {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .report-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+
+        .report-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .report-link.optimize {
+            background: var(--bp-blue);
+            color: white;
+        }
+
+        .report-link.iq {
+            background: var(--bp-orange);
+            color: white;
+        }
+
+        .methodology {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        .methodology h3 { color: var(--bp-dark); margin-bottom: 0.75rem; }
+        .methodology p { color: var(--text-secondary); margin-bottom: 0.75rem; font-size: 0.9rem; }
+
+        .vqs-scale { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.75rem; }
+        .vqs-scale-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; }
+
+        .tier-legend {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .tier-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .tier-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .tier-dot.blue { background: var(--bp-blue); }
+        .tier-dot.orange { background: var(--bp-orange); }
+
+        .footer {
+            text-align: center;
+            padding: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.5rem; }
+            .stats-bar { flex-direction: column; gap: 0.75rem; }
+            .brands-grid { grid-template-columns: 1fr; }
+            .report-links { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-brand"><span>Brand</span><span>point</span></div>
+        <h1>AI Visibility Intelligence Reports <span class="version-badge">v2</span></h1>
+        <p>Enhanced Light-Mode Reports with UI/UX Requirements Applied</p>
+    </header>
+
+    <div class="stats-bar">
+        <div class="stat">
+            <div class="stat-value">19</div>
+            <div class="stat-label">Brands</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value">26,380</div>
+            <div class="stat-label">AI Results</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value">38</div>
+            <div class="stat-label">Reports</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value">40.5%</div>
+            <div class="stat-label">Avg VQS</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 class="section-title">Brand Reports</h2>
+
+        <div class="tier-legend">
+            <div class="tier-item">
+                <span class="tier-dot blue"></span>
+                AI Optimize (gated, campaign-level)
+            </div>
+            <div class="tier-item">
+                <span class="tier-dot orange"></span>
+                BrandpointIQ (fully unlocked)
+            </div>
+        </div>
+
+        <div class="brands-grid">
+            <div class="brand-card">
+                <div class="brand-card-header">
+                    <span class="brand-name">Bona</span>
+                    <span class="vqs-badge vqs-excellent">71.6% VQS</span>
+                </div>
+                <div class="brand-meta">405 results | Grade C+ | Eco-Friendly Floor Finish Campaign</div>
+                <div class="report-links">
+                    <a href="reports/Bona_Enhanced_Report.html" class="report-link optimize">AI Optimize</a>
+                    <a href="reports/Bona_Enhanced_Report_IQ.html" class="report-link iq">BrandpointIQ</a>
+                </div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-card-header">
+                    <span class="brand-name">MUSC</span>
+                    <span class="vqs-badge vqs-good">59.4% VQS</span>
+                </div>
+                <div class="brand-meta">1,633 results | Grade D+ | Medical University Health Campaign</div>
+                <div class="report-links">
+                    <a href="reports/MUSC_Enhanced_Report.html" class="report-link optimize">AI Optimize</a>
+                    <a href="reports/MUSC_Enhanced_Report_IQ.html" class="report-link iq">BrandpointIQ</a>
+                </div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-card-header">
+                    <span class="brand-name">BI Lilly</span>
+                    <span class="vqs-badge vqs-good">56.9% VQS</span>
+                </div>
+                <div class="brand-meta">439 results | Grade D+ | BI Lilly Campaign</div>
+                <div class="report-links">
+                    <a href="reports/BI_Lilly_Enhanced_Report.html" class="report-link optimize">AI Optimize</a>
+                    <a href="reports/BI_Lilly_Enhanced_Report_IQ.html" class="report-link iq">BrandpointIQ</a>
+                </div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-card-header">
+                    <span class="brand-name">Credit One Bank</span>
+                    <span class="vqs-badge vqs-good">55.3% VQS</span>
+                </div>
+                <div class="brand-meta">437 results | Grade D+ | Credit One Bank Campaign</div>
+                <div class="report-links">
+                    <a href="reports/Credit_One_Bank_Enhanced_Report.html" class="report-link optimize">AI Optimize</a>
+                    <a href="reports/Credit_One_Bank_Enhanced_Report_IQ.html" class="report-link iq">BrandpointIQ</a>
+                </div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-card-header">
+                    <span class="brand-name">Jackery</span>
+                    <span class="vqs-badge vqs-good">51.2% VQS</span>
+                </div>
+                <div class="brand-meta">836 results | Grade D+ | Jackery Campaign</div>
+                <div class="report-links">
+                    <a href="reports/Jackery_Enhanced_Report.html" class="report-link optimize">AI Optimize</a>
+                    <a href="reports/Jackery_Enhanced_Report_IQ.html" class="report-link iq">BrandpointIQ</a>
+                </div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-card-header">
+                    <span class="brand-name">Sanofi</span>
+                    <span class="vqs-badge vqs-good">49.0% VQS</span>
+                </div>
+                <div class="brand-meta">1,506 results | Grade D | Flu Vaccine Campaign</div>
+                <div class="report-links">
+                    <a href="reports/Sanofi_Enhanced_Report.html" class="report-link optimize">AI Optimize</a>
+                    <a href="reports/Sanofi_Enhanced_Report_IQ.html" class="report-link iq">BrandpointIQ</a>
+                </div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-card-header">
+                    <span class="brand-name">Festool</span>
+                    <span class="vqs-badge vqs-good">48.8% VQS</span>
+                </div>
+                <div class="brand-meta">445 results | Grade D | Festool Campaign</div>
+                <div class="report-links">
+                    <a href="reports/Festool_Enhanced_Report.html" class="report-link optimize">AI Optimize</a>
+                    <a href="reports/Festool_Enhanced_Report_IQ.html" class="report-link iq">BrandpointIQ</a>
+                </div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-card-header">
+                    <span class="brand-name">DeVry University</span>
+                    <span class="vqs-badge vqs-good">48.1% VQS</span>
+                </div>
+                <div class="brand-meta">514 results | Grade D | DeVry University Campaign</div>
+                <div class="report-links">
+                    <a href="reports/DeVry_University_Enhanced_Report.html" class="report-link optimize">AI Optimize</a>
+                    <a href="reports/DeVry_University_Enhanced_Report_IQ.html" class="report-link iq">BrandpointIQ</a>
+                </div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-card-header">
+                    <span class="brand-name">Panasonic</span>
+                    <span class="vqs-badge vqs-good">46.1% VQS</span>
+                </div>
+                <div class="brand-meta">427 results | Grade D | Panasonic Campaign</div>
+                <div class="report-links">
+                    <a href="reports/Panasonic_Enhanced_Report.html" class="report-link optimize">AI Optimize</a>
+                    <a href="reports/Panasonic_Enhanced_Report_IQ.html" class="report-link iq">BrandpointIQ</a>
+                </div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-card-header">
+                    <span class="brand-name">TetraPak</span>
+                    <span class="vqs-badge vqs-good">43.1% VQS</span>
+                </div>
+                <div class="brand-meta">401 results | Grade D | TetraPak Campaign</div>
+                <div class="report-links">
+                    <a href="reports/TetraPak_Enhanced_Report.html" class="report-link optimize">AI Optimize</a>
+                    <a href="reports/TetraPak_Enhanced_Report_IQ.html" class="report-link iq">BrandpointIQ</a>
+                </div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-card-header">
+                    <span class="brand-name">Crayola</span>
+                    <span class="vqs-badge vqs-moderate">36.5% VQS</span>
+                </div>
+                <div class="brand-meta">473 results | Grade D- | Crayola Campaign</div>
+                <div class="report-links">
+                    <a href="reports/Crayola_Enhanced_Report.html" class="report-link optimize">AI Optimize</a>
+                    <a href="reports/Crayola_Enhanced_Report_IQ.html" class="report-link iq">BrandpointIQ</a>
+                </div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-card-header">
+                    <span class="brand-name">Sirion</span>
+                    <span class="vqs-badge vqs-moderate">33.9% VQS</span>
+                </div>
+                <div class="brand-meta">745 results | Grade D- | Sirion Campaign</div>
+                <div class="report-links">
+                    <a href="reports/Sirion_Enhanced_Report.html" class="report-link optimize">AI Optimize</a>
+                    <a href="reports/Sirion_Enhanced_Report_IQ.html" class="report-link iq">BrandpointIQ</a>
+                </div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-card-header">
+                    <span class="brand-name">Mexican Caribbean</span>
+                    <span class="vqs-badge vqs-moderate">30.2% VQS</span>
+                </div>
+                <div class="brand-meta">503 results | Grade D- | Mexican Caribbean Campaign</div>
+                <div class="report-links">
+                    <a href="reports/Mexican_Caribbean_Enhanced_Report.html" class="report-link optimize">AI Optimize</a>
+                    <a href="reports/Mexican_Caribbean_Enhanced_Report_IQ.html" class="report-link iq">BrandpointIQ</a>
+                </div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-card-header">
+                    <span class="brand-name">Canon</span>
+                    <span class="vqs-badge vqs-moderate">27.4% VQS</span>
+                </div>
+                <div class="brand-meta">844 results | Grade F | Canon Campaign</div>
+                <div class="report-links">
+                    <a href="reports/Canon_Enhanced_Report.html" class="report-link optimize">AI Optimize</a>
+                    <a href="reports/Canon_Enhanced_Report_IQ.html" class="report-link iq">BrandpointIQ</a>
+                </div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-card-header">
+                    <span class="brand-name">Hill's Pet Nutrition</span>
+                    <span class="vqs-badge vqs-moderate">26.9% VQS</span>
+                </div>
+                <div class="brand-meta">415 results | Grade F | Hill's Pet Nutrition Campaign</div>
+                <div class="report-links">
+                    <a href="reports/Hill's_Pet_Nutrition_Enhanced_Report.html" class="report-link optimize">AI Optimize</a>
+                    <a href="reports/Hill's_Pet_Nutrition_Enhanced_Report_IQ.html" class="report-link iq">BrandpointIQ</a>
+                </div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-card-header">
+                    <span class="brand-name">Brandpoint</span>
+                    <span class="vqs-badge vqs-moderate">23.9% VQS</span>
+                </div>
+                <div class="brand-meta">15,549 results | Grade F | Content Marketing Campaign</div>
+                <div class="report-links">
+                    <a href="reports/Brandpoint_Enhanced_Report.html" class="report-link optimize">AI Optimize</a>
+                    <a href="reports/Brandpoint_Enhanced_Report_IQ.html" class="report-link iq">BrandpointIQ</a>
+                </div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-card-header">
+                    <span class="brand-name">GoodRx</span>
+                    <span class="vqs-badge vqs-moderate">20.4% VQS</span>
+                </div>
+                <div class="brand-meta">1,048 results | Grade F | GLP-1 Discounts Campaign</div>
+                <div class="report-links">
+                    <a href="reports/GoodRx_Enhanced_Report.html" class="report-link optimize">AI Optimize</a>
+                    <a href="reports/GoodRx_Enhanced_Report_IQ.html" class="report-link iq">BrandpointIQ</a>
+                </div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-card-header">
+                    <span class="brand-name">Insight Editions</span>
+                    <span class="vqs-badge vqs-low">9.6% VQS</span>
+                </div>
+                <div class="brand-meta">1,290 results | Grade F | Insight Editions Campaign</div>
+                <div class="report-links">
+                    <a href="reports/Insight_Editions_Enhanced_Report.html" class="report-link optimize">AI Optimize</a>
+                    <a href="reports/Insight_Editions_Enhanced_Report_IQ.html" class="report-link iq">BrandpointIQ</a>
+                </div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-card-header">
+                    <span class="brand-name">Fresh Express</span>
+                    <span class="vqs-badge vqs-low">0.0% VQS</span>
+                </div>
+                <div class="brand-meta">660 results | Grade F | Fresh Express Campaign</div>
+                <div class="report-links">
+                    <a href="reports/Fresh_Express_-_Guaranteed_Media_Placements_Enhanced_Report.html" class="report-link optimize">AI Optimize</a>
+                    <a href="reports/Fresh_Express_-_Guaranteed_Media_Placements_Enhanced_Report_IQ.html" class="report-link iq">BrandpointIQ</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="methodology">
+            <h3>About AI Visibility Quality Score (VQS)</h3>
+            <p>
+                The AI Visibility Quality Score measures how effectively a brand appears in AI-generated responses.
+                It is a weighted average of five components: Keyword Relevance (15%), Position &amp; Prominence (25%),
+                Share of Voice (20%), Intent Fulfillment (25%), and AI Quality Evaluation (15%).
+            </p>
+            <p>
+                Each brand has two report tiers: <strong>AI Optimize</strong> (campaign-level with gated sections
+                and BrandpointIQ upgrade prompts) and <strong>BrandpointIQ</strong> (fully unlocked with competitor
+                details and complete keyword visibility).
+            </p>
+            <div class="vqs-scale">
+                <div class="vqs-scale-item"><span class="vqs-badge vqs-excellent">Excellent</span> <span>70%+</span></div>
+                <div class="vqs-scale-item"><span class="vqs-badge vqs-good">Good</span> <span>45-69%</span></div>
+                <div class="vqs-scale-item"><span class="vqs-badge vqs-moderate">Moderate</span> <span>20-44%</span></div>
+                <div class="vqs-scale-item"><span class="vqs-badge vqs-low">Low</span> <span>&lt;20%</span></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>Brandpoint | AI Visibility Intelligence v2</p>
+        <p>Generated February 10, 2026 | 19 brands | UI/UX Requirements Applied</p>
+    </footer>
+</body>
+</html>

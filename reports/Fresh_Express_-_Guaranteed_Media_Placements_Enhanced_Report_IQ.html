@@ -1,0 +1,2456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh Express - Guaranteed Media Placements | AI Visibility Intelligence Report</title>
+    <meta name="description" content="AI Visibility Intelligence Report for Fresh Express - Guaranteed Media Placements - Fresh Express - Guaranteed Media Placements Campaign">
+    <meta property="og:title" content="Fresh Express - Guaranteed Media Placements | AI Visibility Intelligence Report">
+    <meta property="og:description" content="Comprehensive AI visibility analysis for Fresh Express - Guaranteed Media Placements">
+    <meta property="og:type" content="website">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* ============================================================
+           CSS VARIABLES (ROOT)
+           ============================================================ */
+        :root {
+            /* Brandpoint Brand Colors */
+            --bp-blue: #0066b3;
+            --bp-blue-light: #e6f0f7;
+            --bp-blue-dark: #004d86;
+            --bp-orange: #f7941d;
+            --bp-orange-light: #fef3e6;
+            --bp-orange-dark: #c47515;
+
+            /* Backgrounds */
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-card: #ffffff;
+
+            /* Text */
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --text-muted: #999999;
+
+            /* Borders & Shadows */
+            --border-color: #e0e0e0;
+            --border-radius: 12px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+
+            /* Status Colors */
+            --success: #28a745;
+            --success-light: #d4edda;
+            --warning: #f7941d;
+            --warning-light: #fff3cd;
+            --info: #0066b3;
+            --info-light: #cce5ff;
+
+            /* Additional */
+            --purple: #9b59b6;
+            --red: #dc3545;
+        }
+
+        /* ============================================================
+           RESET & BASE
+           ============================================================ */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* ============================================================
+           HEADER BAR
+           ============================================================ */
+        .header {
+            background: linear-gradient(135deg, var(--bp-blue) 0%, var(--bp-blue-dark) 100%);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .header-logo span { color: var(--bp-orange); }
+
+        .header-nav {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .header-nav a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .header-nav a:hover { color: white; }
+
+        /* ============================================================
+           CONTAINER
+           ============================================================ */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* ============================================================
+           PAGE HEADER
+           ============================================================ */
+        .page-header {
+            background: var(--bg-primary);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+
+        .page-header-left {
+            flex: 1;
+        }
+
+        .page-header h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header .subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .page-header-right {
+            flex-shrink: 0;
+            min-width: 320px;
+        }
+
+        /* ============================================================
+           CAMPAIGN TIMELINE BAR
+           ============================================================ */
+        .campaign-timeline-bar {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 1.25rem 1.5rem;
+        }
+
+        .campaign-timeline-bar .timeline-title {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .timeline-track {
+            position: relative;
+            height: 6px;
+            background: var(--border-color);
+            border-radius: 3px;
+            margin: 1rem 0 0.75rem;
+        }
+
+        .timeline-track-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: linear-gradient(90deg, var(--bp-blue), var(--bp-orange));
+            border-radius: 3px;
+            width: 100%;
+        }
+
+        .milestone {
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--bp-blue);
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--bp-blue);
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .milestone.start { left: 0%; background: var(--success); box-shadow: 0 0 0 2px var(--success); }
+        .milestone:not(.start):not(.end) { background: var(--purple); box-shadow: 0 0 0 2px var(--purple); }
+        .milestone.end { left: 100%; background: var(--bp-blue); box-shadow: 0 0 0 2px var(--bp-blue); }
+
+        .timeline-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .timeline-labels .duration {
+            font-weight: 700;
+            color: var(--bp-blue);
+        }
+
+        /* ============================================================
+           HERO SECTION
+           ============================================================ */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .score-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+        }
+
+        .score-card.primary {
+            background: linear-gradient(135deg, var(--success-light) 0%, var(--bg-primary) 100%);
+            border-color: var(--success);
+        }
+
+        .score-card.secondary-orange {
+            background: linear-gradient(135deg, var(--bp-orange-light) 0%, var(--bg-primary) 100%);
+            border-color: var(--bp-orange);
+        }
+
+        .score-circle {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 1rem;
+        }
+
+        .score-circle svg { transform: rotate(-90deg); }
+        .score-circle .bg { fill: none; stroke: var(--border-color); stroke-width: 10; }
+        .score-circle .progress { fill: none; stroke-width: 10; stroke-linecap: round; }
+        .score-circle .progress.blue { stroke: var(--bp-blue); }
+        .score-circle .progress.orange { stroke: var(--bp-orange); }
+        .score-circle .progress.green { stroke: var(--success); }
+
+        .score-value {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .score-value .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .score-value .number.blue { color: var(--bp-blue); }
+        .score-value .number.orange { color: var(--bp-orange); }
+        .score-value .number.green { color: var(--success); }
+
+        .score-value .unit {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .score-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .score-description {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            max-width: 320px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        .confidence-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            background: var(--success-light);
+            color: var(--success);
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 0.75rem;
+        }
+
+        /* Info Button + Tooltip */
+        .info-btn-wrapper {
+            display: inline-block;
+            position: relative;
+        }
+
+        .info-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--text-muted);
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            margin-left: 0.35rem;
+            vertical-align: middle;
+            transition: background 0.2s;
+        }
+
+        .info-btn:hover {
+            background: var(--bp-blue);
+        }
+
+        .tooltip-popup {
+            display: none;
+            position: absolute;
+            bottom: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--text-primary);
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-size: 0.78rem;
+            line-height: 1.5;
+            width: 280px;
+            box-shadow: var(--shadow-md);
+            z-index: 100;
+            text-align: left;
+            font-weight: 400;
+        }
+
+        .tooltip-popup::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent;
+            border-top-color: var(--text-primary);
+        }
+
+        .info-btn-wrapper:hover .tooltip-popup,
+        .info-btn:focus + .tooltip-popup {
+            display: block;
+        }
+
+        /* Pre/Post Comparison */
+        .pre-post-comparison {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .pre-post-comparison .pre-value {
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .pre-post-comparison .arrow {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .pre-post-comparison .post-value {
+            font-weight: 700;
+            color: var(--success);
+        }
+
+        .pre-post-comparison .change-pct {
+            background: var(--success-light);
+            color: var(--success);
+            padding: 0.15rem 0.5rem;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* CADENCE GRID (multi-cadence comparison) */
+        .cadence-grid {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+            flex-wrap: wrap;
+        }
+        .cadence-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 0.35rem 0.65rem;
+            text-align: center;
+            font-size: 0.7rem;
+            min-width: 80px;
+        }
+        .cadence-card .cadence-label {
+            color: var(--text-muted);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        .cadence-card .cadence-value {
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+        .cadence-card .cadence-value.up { color: var(--success); }
+        .cadence-card .cadence-value.down { color: var(--red); }
+        .cadence-card .cadence-value.flat { color: var(--text-muted); }
+
+        /* ============================================================
+           KPI GRID - 4 COLUMNS
+           ============================================================ */
+        .kpi-grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .kpi-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 1.25rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .kpi-card .label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .kpi-card .value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--bp-blue);
+            line-height: 1.2;
+        }
+
+        .kpi-card .value.orange { color: var(--bp-orange); }
+        .kpi-card .value.green { color: var(--success); }
+
+        .kpi-card .detail {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 0.35rem;
+        }
+
+        /* ============================================================
+           RECOMMENDATIONS SECTION (ABOVE THE FOLD)
+           ============================================================ */
+        .recommendations-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .recommendations-section .section-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .recommendations-section .section-title .icon {
+            color: var(--bp-blue);
+            font-size: 1.25rem;
+        }
+
+        .recommendation-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--bp-blue);
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 0.75rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .recommendation-card h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--bp-blue);
+            margin-bottom: 0.35rem;
+        }
+
+        .recommendation-card p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ============================================================
+           SECTION CARD (GENERIC)
+           ============================================================ */
+        .section {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-header h2 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .section-header h2.large-title {
+            font-size: 1.25rem;
+        }
+
+        .section-header .section-subtitle {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            margin-left: 0.5rem;
+        }
+
+        .section-header .phase-badge {
+            background: var(--bp-blue);
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .section-body {
+            padding: 1.5rem;
+        }
+
+        /* WHAT'S Badge */
+        .whats-badge {
+            background: var(--bp-orange);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ============================================================
+           KEY INSIGHT BOXES
+           ============================================================ */
+        .key-insight-box {
+            margin-top: 1.5rem;
+            padding: 1rem 1.25rem 1rem 3rem;
+            background: var(--bp-blue-light);
+            border-left: 4px solid var(--bp-blue);
+            border-radius: 0 12px 12px 0;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        .key-insight-box::before {
+            content: "\1F4A1";
+            position: absolute;
+            left: 0.85rem;
+            top: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .key-insight-box strong {
+            color: var(--bp-blue);
+        }
+
+        .key-insight-box p {
+            color: var(--text-primary);
+        }
+
+        /* ============================================================
+           CAMPAIGN IMPACT CARDS
+           ============================================================ */
+        .impact-summary {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .impact-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.25rem;
+            border-radius: var(--border-radius);
+            background: var(--bg-secondary);
+            border-left: 4px solid;
+        }
+
+        .impact-card.activation {
+            border-color: var(--bp-orange);
+            background: var(--bp-orange-light);
+        }
+
+        .impact-card.duration {
+            border-color: var(--bp-blue);
+            background: var(--bp-blue-light);
+        }
+
+        .impact-card.results {
+            border-color: var(--success);
+            background: var(--success-light);
+        }
+
+        .impact-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .impact-card.activation .impact-icon {
+            background: var(--bp-orange);
+            color: white;
+        }
+
+        .impact-card.duration .impact-icon {
+            background: var(--bp-blue);
+            color: white;
+        }
+
+        .impact-card.results .impact-icon {
+            background: var(--success);
+            color: white;
+        }
+
+        .impact-content { flex: 1; }
+
+        .impact-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 0.25rem;
+        }
+
+        .impact-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.2;
+        }
+
+        .impact-detail {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        /* ============================================================
+           TIMELINE CHART
+           ============================================================ */
+        .timeline-chart-section {
+            margin-bottom: 2rem;
+        }
+
+        .chart-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-chart-container {
+            height: 350px;
+            position: relative;
+        }
+
+        .timeline-legend {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .legend-dot.blue { background: var(--bp-blue); }
+        .legend-dot.orange { background: var(--bp-orange); }
+        .legend-dot.green { background: var(--success); }
+        .legend-dot.gray { background: var(--text-muted); }
+
+        .legend-line {
+            width: 20px;
+            height: 2px;
+            position: relative;
+        }
+
+        /* Activation marker legend: green dashed line */
+        .activation-marker .legend-line {
+            background: repeating-linear-gradient(
+                90deg,
+                var(--success),
+                var(--success) 4px,
+                transparent 4px,
+                transparent 8px
+            );
+        }
+
+        .activation-marker .legend-line::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: -3px;
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Article marker legend: purple dashed line */
+        .article-marker .legend-line-dashed {
+            width: 20px;
+            height: 2px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--purple),
+                var(--purple) 4px,
+                transparent 4px,
+                transparent 8px
+            );
+            position: relative;
+        }
+
+        .article-marker .legend-line-dashed::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: -3px;
+            width: 8px;
+            height: 8px;
+            background: var(--purple);
+            border-radius: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Content Relevance legend: green dashed */
+        .legend-line-dashed-green {
+            width: 20px;
+            height: 2px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--success),
+                var(--success) 4px,
+                transparent 4px,
+                transparent 8px
+            );
+        }
+
+        /* Confidence legend: gray dotted */
+        .legend-line-dotted-gray {
+            width: 20px;
+            height: 2px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--text-muted),
+                var(--text-muted) 2px,
+                transparent 2px,
+                transparent 6px
+            );
+        }
+
+        /* ============================================================
+           BRAND & CATEGORY AI VISIBILITY (REDESIGNED)
+           ============================================================ */
+        .brand-category-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .bc-metric-box {
+            position: relative;
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .bc-metric-box .big-count {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+
+        .bc-metric-box .bc-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .bc-metric-box .bc-sublabel {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .bc-metric-pct-overlay {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(0, 102, 179, 0.9);
+            color: white;
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .bc-metric-pct-overlay.orange {
+            background: rgba(247, 148, 29, 0.9);
+        }
+
+        .bc-metric-pct-overlay.green {
+            background: rgba(40, 167, 69, 0.9);
+        }
+
+        .bc-metric-box.brand-named {
+            border-color: var(--bp-orange);
+            background: var(--bp-orange-light);
+        }
+
+        .bc-metric-box.content-relevance {
+            border-color: var(--bp-blue);
+            background: var(--bp-blue-light);
+        }
+
+        .bc-metric-box.category-relevant {
+            border-color: var(--success);
+            background: var(--success-light);
+        }
+
+        .bc-difference-badge {
+            display: inline-block;
+            background: var(--bp-orange);
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        /* ============================================================
+           METRIC BARS (GENERIC)
+           ============================================================ */
+        .metric-row {
+            display: flex;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .metric-row:last-child { border-bottom: none; }
+
+        .metric-label {
+            width: 180px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .metric-bar-container {
+            flex: 1;
+            margin: 0 1rem;
+        }
+
+        .metric-bar {
+            height: 24px;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .metric-bar-fill {
+            height: 100%;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            padding-left: 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: white;
+            transition: width 1s ease-out;
+        }
+
+        .metric-bar-fill.blue { background: linear-gradient(90deg, var(--bp-blue) 0%, var(--bp-blue-dark) 100%); }
+        .metric-bar-fill.green { background: linear-gradient(90deg, var(--success) 0%, #1e7e34 100%); }
+        .metric-bar-fill.orange { background: linear-gradient(90deg, var(--bp-orange) 0%, var(--bp-orange-dark) 100%); }
+
+        .metric-value {
+            width: 80px;
+            text-align: right;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .metric-value.high { color: var(--success); }
+        .metric-value.medium { color: var(--bp-blue); }
+        .metric-value.low { color: var(--bp-orange); }
+
+        /* ============================================================
+           KEYWORD SCORE SEGMENTED BAR
+           ============================================================ */
+        .keyword-score-bar {
+            position: relative;
+            height: 32px;
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            margin-bottom: 0.5rem;
+        }
+
+        .keyword-score-bar .segment {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .keyword-score-bar .segment.red { background: var(--red); flex: 25; }
+        .keyword-score-bar .segment.orange { background: var(--bp-orange); flex: 25; }
+        .keyword-score-bar .segment.green-seg { background: var(--success); flex: 25; }
+        .keyword-score-bar .segment.blue { background: var(--bp-blue); flex: 25; }
+
+        .keyword-score-marker {
+            position: absolute;
+            top: -8px;
+            bottom: -8px;
+            width: 3px;
+            background: var(--text-primary);
+            border-radius: 2px;
+            z-index: 2;
+        }
+
+        .keyword-score-marker::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 6px solid var(--text-primary);
+        }
+
+        /* Keyword pills */
+        .keywords-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .keyword-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bp-blue-light);
+            border: 1px solid var(--bp-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+        }
+
+        .keyword-tag.primary {
+            background: var(--bp-orange-light);
+            border-color: var(--bp-orange);
+        }
+
+        .keyword-tag .count {
+            background: var(--bp-blue);
+            color: white;
+            padding: 0.15rem 0.5rem;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .keyword-tag.primary .count {
+            background: var(--bp-orange);
+        }
+
+        /* ============================================================
+           GATING SYSTEM
+           ============================================================ */
+        .gated-wrapper {
+            position: relative;
+        }
+
+        .gated-wrapper.locked .gated-content {
+            filter: blur(4px);
+            opacity: 0.6;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .gated-wrapper.locked .gated-overlay-cta {
+            display: flex;
+        }
+
+        .gated-wrapper:not(.locked) .gated-overlay-cta {
+            display: none;
+        }
+
+        .gated-overlay-cta {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(247, 148, 29, 0.95);
+            color: white;
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            z-index: 10;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            max-width: 420px;
+            width: 90%;
+            box-shadow: var(--shadow-md);
+        }
+
+        .gated-overlay-cta p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        .btn-upgrade {
+            display: inline-block;
+            background: white;
+            color: var(--bp-orange);
+            padding: 0.5rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn-upgrade:hover {
+            background: var(--bp-orange-light);
+            color: var(--bp-orange-dark);
+        }
+
+        /* ============================================================
+           SOV SECTION
+           ============================================================ */
+        .sov-display {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .sov-score {
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .sov-score .value {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--bp-blue);
+            line-height: 1;
+        }
+
+        .sov-score .label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .sov-details {
+            flex: 1;
+        }
+
+        .sov-details h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .sov-horizontal-bar {
+            height: 32px;
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .sov-horizontal-bar .brand-segment {
+            background: linear-gradient(90deg, var(--bp-blue), var(--bp-blue-dark));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .sov-horizontal-bar .others-segment {
+            background: var(--border-color);
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .sov-bar-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .competitor-list {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 0.75rem;
+        }
+
+        .competitor-tag {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* ============================================================
+           POSITION GRID
+           ============================================================ */
+        .position-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .position-item {
+            text-align: center;
+            padding: 1.25rem;
+            background: var(--bg-secondary);
+            border-radius: var(--border-radius);
+        }
+
+        .position-item.highlight {
+            background: var(--success-light);
+            border: 2px solid var(--success);
+        }
+
+        .position-item .value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--bp-blue);
+            line-height: 1;
+        }
+
+        .position-item.highlight .value { color: var(--success); }
+
+        .position-item .pct {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .position-item .label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        /* ============================================================
+           SENTIMENT GAUGE
+           ============================================================ */
+        .sentiment-gauge {
+            margin: 1.5rem 0;
+        }
+
+        .sentiment-bar {
+            position: relative;
+            height: 28px;
+            border-radius: 14px;
+            background: linear-gradient(90deg, var(--red) 0%, var(--bp-orange) 35%, #ffd700 50%, #90EE90 65%, var(--success) 100%);
+            margin-bottom: 0.5rem;
+        }
+
+        .sentiment-marker {
+            position: absolute;
+            top: -6px;
+            width: 4px;
+            height: 40px;
+            background: var(--text-primary);
+            border-radius: 2px;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        .sentiment-marker::after {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 12px;
+            background: var(--text-primary);
+            border-radius: 50%;
+        }
+
+        .sentiment-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .sentiment-labels .negative { color: var(--red); font-weight: 600; }
+        .sentiment-labels .neutral { color: var(--text-muted); font-weight: 600; }
+        .sentiment-labels .positive { color: var(--success); font-weight: 600; }
+
+        .sentiment-value-display {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .sentiment-value-display .sent-label {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .sentiment-value-display .sent-label.positive { color: var(--success); }
+        .sentiment-value-display .sent-label.negative { color: var(--red); }
+        .sentiment-value-display .sent-label.neutral { color: var(--text-muted); }
+
+        .sentiment-value-display .sent-score {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-left: 0.5rem;
+        }
+
+        /* ============================================================
+           FOOTER - "WHAT COMES NEXT"
+           ============================================================ */
+        .what-comes-next {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .what-comes-next .wcn-header {
+            background: linear-gradient(135deg, var(--bp-blue) 0%, var(--bp-blue-dark) 100%);
+            color: white;
+            padding: 1.5rem 2rem;
+            text-align: center;
+        }
+
+        .what-comes-next .wcn-header h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .what-comes-next .wcn-header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .what-comes-next .wcn-body {
+            padding: 2rem;
+        }
+
+        .brand-level-preview {
+            background: var(--bp-blue-light);
+            border: 1px solid var(--bp-blue);
+            border-radius: var(--border-radius);
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .brand-level-preview p {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .brand-level-preview strong {
+            color: var(--bp-blue);
+        }
+
+        .value-prop-blocks {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .value-prop-block {
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+        }
+
+        .value-prop-block h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .value-prop-block .vp-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: var(--bp-blue);
+            color: white;
+            border-radius: 50%;
+            font-size: 0.75rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .value-prop-block p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+        }
+
+        .value-prop-block .demo-link {
+            display: inline-block;
+            color: var(--bp-orange);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-decoration: none;
+            border-bottom: 2px solid var(--bp-orange);
+            transition: all 0.2s;
+        }
+
+        .value-prop-block .demo-link:hover {
+            color: var(--bp-orange-dark);
+        }
+
+        /* ============================================================
+           PROMPTS SECTION
+           ============================================================ */
+        .prompts-section {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .prompts-section .prompts-header {
+            padding: 1.25rem 1.5rem;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .prompts-section .prompts-header h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .prompts-section .prompts-header p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .prompts-section .prompts-body {
+            padding: 1.5rem;
+        }
+
+        .prompts-list {
+            list-style: none;
+            counter-reset: prompt-counter;
+        }
+
+        .prompts-list li {
+            counter-increment: prompt-counter;
+            padding: 0.75rem 1rem 0.75rem 3rem;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+
+        .prompts-list li:last-child {
+            border-bottom: none;
+        }
+
+        .prompts-list li::before {
+            content: counter(prompt-counter);
+            position: absolute;
+            left: 0.75rem;
+            top: 0.75rem;
+            width: 24px;
+            height: 24px;
+            background: var(--bp-blue);
+            color: white;
+            border-radius: 50%;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ============================================================
+           REPORT FOOTER (GENERATION META)
+           ============================================================ */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 1rem;
+        }
+
+        .footer-brand {
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+        }
+
+        /* ============================================================
+           RESPONSIVE BREAKPOINTS
+           ============================================================ */
+        @media (max-width: 1024px) {
+            .hero-section { grid-template-columns: 1fr; }
+            .kpi-grid-4 { grid-template-columns: repeat(2, 1fr); }
+            .position-grid { grid-template-columns: repeat(2, 1fr); }
+            .brand-category-metrics { grid-template-columns: 1fr; }
+            .value-prop-blocks { grid-template-columns: 1fr; }
+            .page-header { flex-direction: column; }
+            .page-header-right { min-width: auto; width: 100%; }
+            .sov-display { flex-direction: column; text-align: center; }
+            .impact-summary { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 1rem; }
+            .kpi-grid-4 { grid-template-columns: 1fr; }
+            .position-grid { grid-template-columns: repeat(2, 1fr); }
+            .page-header { flex-direction: column; gap: 1rem; }
+            .page-header-right { min-width: auto; width: 100%; }
+            .timeline-legend { gap: 0.75rem; }
+            .sov-display { flex-direction: column; }
+            .header { flex-direction: column; gap: 0.75rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <!-- ============================================================
+         2. HEADER BAR
+         ============================================================ -->
+    <header class="header">
+        <div class="header-logo">Brand<span>point</span></div>
+        <nav class="header-nav">
+            <a href="#">Reports</a>
+            <a href="#">Analytics</a>
+            <a href="#">Support</a>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <!-- ============================================================
+             3. PAGE HEADER
+             ============================================================ -->
+        <div class="page-header">
+            <div class="page-header-left">
+                <h1>Fresh Express - Guaranteed Media Placements &mdash; AI Visibility Intelligence</h1>
+                <p class="subtitle">Fresh Express - Guaranteed Media Placements Campaign | Comprehensive Analysis</p>
+            </div>
+            <div class="page-header-right">
+                <div class="campaign-timeline-bar">
+                    <div class="timeline-title">Campaign Impact Timeline</div>
+                    <div class="timeline-track">
+                        <div class="timeline-track-fill"></div>
+                        <div class="milestone start" title="Campaign Start"></div>
+<div class="milestone" style="left: -3.6%" title="Savor more, stress less: 5 tips ... (Nov 24, 2025)"></div>
+<div class="milestone end" title="Campaign End"></div>
+                    </div>
+                    <div class="timeline-labels">
+                        <span>Nov 26, 2025</span>
+                        <span class="duration">42 Days</span>
+                        <span>Jan 21, 2026</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+             4. HERO SECTION (2-column grid)
+             ============================================================ -->
+        <div class="hero-section">
+            <!-- Left Card: AI Visibility Quality Score -->
+            <div class="score-card primary">
+                <div class="score-circle">
+                    <svg width="160" height="160" viewBox="0 0 160 160">
+                        <circle class="bg" cx="80" cy="80" r="65" />
+                        <circle class="progress green" cx="80" cy="80" r="65"
+                                stroke-dasharray="408.4" stroke-dashoffset="408.4" />
+                    </svg>
+                    <div class="score-value">
+                        <div class="number green">0.0</div>
+                        <div class="unit">%</div>
+                    </div>
+                </div>
+                <div class="score-label">AI Visibility Quality Score</div>
+                <div class="score-description">Weighted average across AI Visibility, Position, competitive ranking, and share of voice</div>
+                <div style="margin-top: 0.75rem;">
+                    <span class="confidence-badge">
+                        Grade A Confidence (95%)
+                    </span>
+                    <span class="info-btn-wrapper">
+                        <button class="info-btn" aria-label="Confidence info" tabindex="0">i</button>
+                        <span class="tooltip-popup">The confidence rating measures statistical reliability based on 660 AI responses analyzed during the monitoring period.</span>
+                    </span>
+                </div>
+                <div class="pre-post-comparison">
+                    <span class="pre-value">0.0</span>
+                    <span class="arrow">&rarr;</span>
+                    <span class="post-value">0.0</span>
+                    <span class="change-pct">+0.0%%</span>
+                </div>
+                <div class="cadence-grid">
+                    <div class="cadence-card"><div class="cadence-label">Week 1 vs Last</div><div class="cadence-value flat">+0.0</div></div>
+<div class="cadence-card"><div class="cadence-label">1st Half vs 2nd</div><div class="cadence-value flat">+0.0</div></div>
+<div class="cadence-card"><div class="cadence-label">Last 7 Days</div><div class="cadence-value flat">+0.0</div></div>
+<div class="cadence-card"><div class="cadence-label">Peak vs Now</div><div class="cadence-value flat">+0.0</div></div>
+                </div>
+            </div>
+
+            <!-- Right Card: Featured Position Rate -->
+            <div class="score-card secondary-orange">
+                <div class="score-circle">
+                    <svg width="160" height="160" viewBox="0 0 160 160">
+                        <circle class="bg" cx="80" cy="80" r="65" />
+                        <circle class="progress orange" cx="80" cy="80" r="65"
+                                stroke-dasharray="408.4" stroke-dashoffset="408.4" />
+                    </svg>
+                    <div class="score-value">
+                        <div class="number orange">0.0</div>
+                        <div class="unit">%</div>
+                    </div>
+                </div>
+                <div class="score-label">Featured Position Rate</div>
+                <div class="score-description">First or Top 3 recommendation in AI responses</div>
+            </div>
+        </div>
+
+        <!-- Score Key Insight (below hero, above KPI grid) -->
+        <div class="key-insight-box" style="margin-top: 1rem; margin-bottom: 1.5rem;">
+            <p><strong>Key Insight:</strong> Your AI Visibility Quality Score of 0.0 out of 100 means AI tools mention your products often. This score went up 0.0% since monitoring started.</p>
+        </div>
+
+        <!-- ============================================================
+             5. KPI GRID (4 columns)
+             ============================================================ -->
+        <div class="kpi-grid-4">
+            <div class="kpi-card">
+                <div class="label">Brand Named</div>
+                <div class="value orange">0.0%</div>
+                <div class="detail">0 of 660 responses</div>
+            </div>
+            <div class="kpi-card">
+                <div class="label">Category Relevant</div>
+                <div class="value green">100%</div>
+                <div class="detail">660 of 660 responses</div>
+            </div>
+            <div class="kpi-card">
+                <div class="label">Share of Voice</div>
+                <div class="value">0.0%</div>
+                <div class="detail">Share of Voice</div>
+            </div>
+            <div class="kpi-card">
+                <div class="label">Content Relevance</div>
+                <div class="value">0.0%</div>
+                <div class="detail">Keywords matching category</div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+             6. RECOMMENDATIONS (above the fold)
+             ============================================================ -->
+        <div class="recommendations-section">
+            <div class="section-title">
+                <span class="icon">&#9733;</span> Recommendations
+            </div>
+            
+                <div class="recommendation-card priority-high">
+                    <div class="rec-icon">🎯</div>
+                    <div class="rec-content">
+                        <h4>Increase Direct Brand Mentions</h4>
+                        <p>Only 0.0% of AI answers name "Fresh Express - Guaranteed Media Placements" directly. Creating more brand-specific content and press coverage can help AI learn to associate your name with the product category.</p>
+                    </div>
+                </div>
+
+                <div class="recommendation-card priority-medium">
+                    <div class="rec-icon">📝</div>
+                    <div class="rec-content">
+                        <h4>Expand Keyword Coverage</h4>
+                        <p>Content relevance is at 0.0%. Broadening the range of topics and keywords in your published content helps AI tools connect your brand to more consumer questions.</p>
+                    </div>
+                </div>
+
+                <div class="recommendation-card priority-info">
+                    <div class="rec-icon">📊</div>
+                    <div class="rec-content">
+                        <h4>Continue Monitoring</h4>
+                        <p>Your 42-day monitoring window captures how AI responds to new content. Consistent tracking reveals patterns and measures the impact of content changes over time.</p>
+                    </div>
+                </div>
+        </div>
+
+        <!-- ============================================================
+             7. AI VISIBILITY TREND CHART
+             ============================================================ -->
+        <div class="section">
+            <div class="section-header">
+                <h2>AI Visibility Trend Over Campaign Period</h2>
+                <span class="phase-badge">Content ROI</span>
+            </div>
+            <div class="section-body">
+                <!-- Campaign Impact Cards -->
+                <div class="impact-summary">
+                    <div class="impact-card activation">
+                        <div class="impact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12,6 12,12 16,14"/>
+                            </svg>
+                        </div>
+                        <div class="impact-content">
+                            <div class="impact-label">Activation Date</div>
+                            <div class="impact-value">Nov 26, 2025</div>
+                            <div class="impact-detail">Campaign monitoring began</div>
+                        </div>
+                    </div>
+                    <div class="impact-card duration">
+                        <div class="impact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                        </div>
+                        <div class="impact-content">
+                            <div class="impact-label">Duration</div>
+                            <div class="impact-value">42 Days</div>
+                            <div class="impact-detail">Nov 26, 2025 &ndash; Jan 21, 2026</div>
+                        </div>
+                    </div>
+                    <div class="impact-card results">
+                        <div class="impact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22,4 12,14.01 9,11.01"/>
+                            </svg>
+                        </div>
+                        <div class="impact-content">
+                            <div class="impact-label">Results Captured</div>
+                            <div class="impact-value">660</div>
+                            <div class="impact-detail">AI responses analyzed</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Chart -->
+                <div class="timeline-chart-section">
+                    <h4 class="chart-title">Fresh Express - Guaranteed Media Placements &mdash; AI Visibility Trend</h4>
+                    <div class="timeline-chart-container">
+                        <canvas id="impactTimelineChart"></canvas>
+                    </div>
+                    <div class="timeline-legend">
+                        <span class="legend-item"><span class="legend-dot blue"></span> AI Visibility Score Avg</span>
+                        <span class="legend-item"><span class="legend-dot orange"></span> Brand Named Rate</span>
+                        <span class="legend-item"><span class="legend-line-dashed-green"></span> % Content Relevance</span>
+                        <span class="legend-item"><span class="legend-line-dotted-gray"></span> Confidence</span>
+                        <span class="legend-item"><span class="legend-dot" style="background:#e67e22;"></span> Brand Rank</span>
+                        <span class="legend-item"><span class="legend-line-dashed" style="border-color:#aaa;"></span> Brand Rank Cumulative Avg</span>
+                        <span class="legend-item activation-marker"><span class="legend-line"></span> Monitoring Start date</span>
+                        <span class="legend-item article-marker"><span class="legend-line-dashed"></span> Article Published</span>
+                    </div>
+                    <p style="text-align: center; font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem;">
+                        * Data from 42 monitoring days | Gap Dec 07-Dec 21 (monitoring paused)
+                    </p>
+                </div>
+
+                <!-- Trend Key Insight -->
+                <div class="key-insight-box">
+                    <p><strong>Key Insight:</strong> Over the 42-day monitoring period, your visibility score moved from 0.0 to 0.0 (+0.0%). Fresh Express - Guaranteed Media Placements ranks #1 among all monitored brands in this category.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+             8. BRAND AND CATEGORY AI VISIBILITY (REDESIGNED)
+             ============================================================ -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Brand and Category AI Visibility</h2>
+            </div>
+            <div class="section-body">
+                <div class="brand-category-metrics">
+                    <!-- Brand Named -->
+                    <div class="bc-metric-box brand-named">
+                        <span class="bc-metric-pct-overlay orange">0.0%</span>
+                        <div class="big-count">0</div>
+                        <div class="bc-label">Brand Named</div>
+                        <div class="bc-sublabel"># of explicitly mentioned "Fresh Express - Guaranteed Media Placements"</div>
+                    </div>
+
+                    <!-- Category Relevant -->
+                    <div class="bc-metric-box category-relevant">
+                        <span class="bc-metric-pct-overlay green">100%</span>
+                        <div class="big-count">660</div>
+                        <div class="bc-label">Category Relevant</div>
+                        <div class="bc-sublabel">Total product category responses including and excluding Fresh Express - Guaranteed Media Placements</div>
+                    </div>
+
+                    <!-- Content Relevance -->
+                    <div class="bc-metric-box content-relevance">
+                        <span class="bc-metric-pct-overlay">0.0%</span>
+                        <div class="big-count" style="font-size: 2.5rem;">0.0%</div>
+                        <div class="bc-label">Content Relevant</div>
+                        <div class="bc-sublabel">Fresh Express - Guaranteed Media Placements used the keywords that fit the product category</div>
+                        <span class="bc-difference-badge">+660</span>
+                    </div>
+                </div>
+
+                <!-- Key Insight -->
+                <div class="key-insight-box">
+                    <p><strong>Key Insight:</strong> AI tools talk about your product type in all 660 answers we checked. But they only say "Fresh Express - Guaranteed Media Placements" by name in 0.0% of those answers. The gap shows room to grow brand recognition in AI.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+             9. KEYWORD SECTION (with gating) - "How users are searching"
+             ============================================================ -->
+        <div class="section">
+            <div class="section-header">
+                <div>
+                    <h2 class="large-title">How users are searching <span class="section-subtitle">Weighted Keyword Scoring</span></h2>
+                </div>
+                <span class="whats-badge">WHAT'S</span>
+            </div>
+            <div class="section-body">
+                <!-- Keyword Score Bar -->
+                <div style="margin-bottom: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                        <span style="font-weight: 600; color: var(--text-primary);">Keyword Score</span>
+                        <span style="font-size: 1.5rem; font-weight: 700; color: var(--bp-blue);">0.0%</span>
+                    </div>
+                    <div class="keyword-score-bar">
+                        <div class="segment red">0-25%</div>
+                        <div class="segment orange">25-50%</div>
+                        <div class="segment green-seg">50-75%</div>
+                        <div class="segment blue">75-100%</div>
+                        <div class="keyword-score-marker" style="left: 0.0%;"></div>
+                    </div>
+                </div>
+
+                <!-- Keywords Detected -->
+                <div style="margin-bottom: 1.5rem;">
+                    <h4 style="font-size: 0.9rem; margin-bottom: 1rem; color: var(--text-secondary);">Keywords Detected (0 total matches)</h4>
+                    <div class="keywords-grid">
+                        
+                    </div>
+                </div>
+
+                <!-- Gated Keyword Details -->
+                <div class="gated-wrapper ">
+                    <div class="gated-content">
+                        <div style="padding: 1rem; background: var(--bg-secondary); border-radius: var(--border-radius); margin-bottom: 0.5rem;">
+                            
+                        </div>
+                    </div>
+                    <div class="gated-overlay-cta">
+                        <p>To unlock full keyword visibility and complete sales reports, upgrade to BrandpointIQ!</p>
+                        <a href="#" class="btn-upgrade">Explore BrandpointIQ</a>
+                    </div>
+                </div>
+
+                <!-- Insight -->
+                <div class="key-insight-box">
+                    <p><strong>Key Insight:</strong> We found 0 keyword matches across all AI answers. Your content relevance score is 0.0%. Higher keyword coverage means AI is more likely to mention your brand.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+             10. COMPETITIVE SHARE OF VOICE (with gating)
+             ============================================================ -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Competitive Share of Voice</h2>
+                <span class="whats-badge">WHAT'S</span>
+            </div>
+            <div class="section-body">
+                <div class="sov-display">
+                    <div class="sov-score">
+                        <div class="value">0.0%</div>
+                        <div class="label">SOV Score</div>
+                    </div>
+                    <div class="sov-details">
+                        <h4>Category Dominance: Fresh Express - Guaranteed Media Placements Campaign</h4>
+                        <div class="sov-horizontal-bar">
+                            <div class="brand-segment" style="width: 0.0%;">Fresh Express - Guaranteed Media Placements 0.0%</div>
+                            <div class="others-segment" style="width: 100.0%;">Others 100.0%</div>
+                        </div>
+                        <div class="sov-bar-labels">
+                            <span>Fresh Express - Guaranteed Media Placements</span>
+                            <span>Competitors</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gated Competitor Details -->
+                <div class="gated-wrapper ">
+                    <div class="gated-content">
+                        <h4 style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Competitors Detected in AI Responses</h4>
+                        <div class="competitor-list">
+                            <span class="competitor-tag">No competitors detected</span>
+                        </div>
+                    </div>
+                    <div class="gated-overlay-cta">
+                        <p>Brandpoint AI Optimize is able to capture the names of the competitors that are mentioned in AI Overviews. Upgrade to BrandpointIQ to see who they are and track how they change over time.</p>
+                        <a href="#" class="btn-upgrade">Explore BrandpointIQ</a>
+                    </div>
+                </div>
+
+                <!-- Insight -->
+                <div class="key-insight-box">
+                    <p><strong>Key Insight:</strong> Your brand holds 0.0% share of voice in this category. This means when AI talks about your product type, your brand appears far more than others.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+             11. POSITION & PROMINENCE (with gating)
+             ============================================================ -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Conversation results: position &amp; prominence</h2>
+                <span class="whats-badge">WHAT'S</span>
+            </div>
+            <div class="section-body">
+                <!-- Position Score Bar -->
+                <div class="metric-row" style="border-bottom: none;">
+                    <div class="metric-label">Position Score</div>
+                    <div class="metric-bar-container">
+                        <div class="metric-bar">
+                            <div class="metric-bar-fill green" style="width: 0.0%;">0.0%</div>
+                        </div>
+                    </div>
+                    <div class="metric-value high">0.0%</div>
+                </div>
+
+                <!-- Position Grid: First Position always visible -->
+                <div style="margin-top: 1.5rem;">
+                    <div class="position-grid">
+                        <!-- First Position (always visible) -->
+                        <div class="position-item highlight">
+                            <div class="value">0</div>
+                            <div class="pct">0.0%</div>
+                            <div class="label">First Position</div>
+                        </div>
+
+                        <!-- Gated: Top 3, Middle, Mentioned -->
+                        <div class="gated-wrapper " style="grid-column: span 3;">
+                            <div class="gated-content">
+                                <div class="position-grid" style="grid-template-columns: repeat(3, 1fr);">
+                                    <div class="position-item">
+                                        <div class="value">0</div>
+                                        <div class="pct">0.0%</div>
+                                        <div class="label">Top 3</div>
+                                    </div>
+                                    <div class="position-item">
+                                        <div class="value">0</div>
+                                        <div class="pct">0.0%</div>
+                                        <div class="label">Middle</div>
+                                    </div>
+                                    <div class="position-item">
+                                        <div class="value">0</div>
+                                        <div class="pct">0.0%</div>
+                                        <div class="label">Mentioned Only</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gated-overlay-cta">
+                                <p>See how your brand shows up across all questions consumers ask. Are you consistently in the answers? Upgrade to BrandpointIQ to learn your position and create a plan for the future.</p>
+                                <a href="#" class="btn-upgrade">Explore BrandpointIQ</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Insight -->
+                <div class="key-insight-box">
+                    <p><strong>Key Insight:</strong> Your brand appears as the first answer 0.0% of the time. A high position score of 0.0% means AI tools put your brand front and center.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+             12. SENTIMENT
+             ============================================================ -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Brand Sentiment in AI Responses</h2>
+            </div>
+            <div class="section-body">
+                <div class="sentiment-gauge">
+                    <div class="sentiment-bar">
+                        <div class="sentiment-marker" style="left: 99.5%;"></div>
+                    </div>
+                    <div class="sentiment-labels">
+                        <span class="negative">-1.0 Negative</span>
+                        <span class="neutral">0 Neutral</span>
+                        <span class="positive">+1.0 Positive</span>
+                    </div>
+                </div>
+                <div class="sentiment-value-display">
+                    <span class="sent-label positive">Very Positive</span>
+                    <span class="sent-score">(0.99)</span>
+                </div>
+
+                <!-- Insight -->
+                <div class="key-insight-box">
+                    <p><strong>Key Insight:</strong> AI tools describe your brand with a very positive tone. A sentiment score of 0.99 means the language used about your products is generally favorable.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+             13. FOOTER - "What Comes Next"
+             ============================================================ -->
+        
+        <div class="footer-section">
+            <h2>What Comes Next</h2>
+            <p class="footer-main-message">With BrandpointIQ, you have full access to competitive intelligence and detailed keyword analytics. Consider Brandpoint360 for complete market intelligence and audience insights.</p>
+            <div class="brand-preview">
+                <p>Your brand appears as the primary AI answer in ~0.0% of consumer questions about .</p>
+            </div>
+            
+                <div class="value-props">
+                    <div class="value-prop-card">
+                        <h4>Market Intelligence</h4>
+                        <p>Deep competitive landscape analysis with trend forecasting.</p>
+                        <a href="#" class="btn-demo">ADD DEMO OR LEARN MORE LINK</a>
+                    </div>
+                    <div class="value-prop-card">
+                        <h4>Audience Intelligence</h4>
+                        <p>Understand who is searching and what drives their decisions.</p>
+                        <a href="#" class="btn-demo">ADD DEMO OR LEARN MORE LINK</a>
+                    </div>
+                    <div class="value-prop-card">
+                        <h4>Marketing Calendar Integration</h4>
+                        <p>Plan content around AI visibility trends and seasonal patterns.</p>
+                        <a href="#" class="btn-demo">ADD DEMO OR LEARN MORE LINK</a>
+                    </div>
+                </div>
+        </div>
+
+        <!-- ============================================================
+             14. PROMPTS LIST
+             ============================================================ -->
+        <div class="prompts-section">
+            <div class="prompts-header">
+                <h2>Consumer Questions Monitored</h2>
+                <p>A deeper cut for teams to understand how consumers are searching</p>
+            </div>
+            <div class="prompts-body">
+                <ol class="prompts-list">
+                    <li>Holiday party planning tips</li>
+<li>How to enjoy hosting holiday parties</li>
+<li>How to save time holiday entertaining</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- ============================================================
+             15. REPORT FOOTER (GENERATION META)
+             ============================================================ -->
+        <footer class="footer">
+            <div class="footer-brand">Brandpoint | AI Visibility Intelligence</div>
+            <p>Report generated February 10, 2026 at 01:58 AM | Fresh Express - Guaranteed Media Placements | AI Optimize with Monitoring</p>
+        </footer>
+    </div>
+
+    <!-- ============================================================
+         JAVASCRIPT: CHART.JS INITIALIZATION
+         ============================================================ -->
+    <script>
+        // ============================================================
+        // DATA FROM PYTHON GENERATOR
+        // ============================================================
+        const campaignLabels = ["Nov 26", "Nov 27", "Nov 28", "Nov 29", "Nov 30", "Dec 01", "Dec 02", "Dec 03", "Dec 04", "Dec 05", "Dec 06", "Dec 22", "Dec 23", "Dec 24", "Dec 25", "Dec 26", "Dec 27", "Dec 28", "Dec 29", "Dec 30", "Dec 31", "Jan 01", "Jan 02", "Jan 03", "Jan 04", "Jan 05", "Jan 06", "Jan 07", "Jan 08", "Jan 09", "Jan 10", "Jan 11", "Jan 12", "Jan 13", "Jan 14", "Jan 15", "Jan 16", "Jan 17", "Jan 18", "Jan 19", "Jan 20", "Jan 21"];
+        const visibilityData = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];
+        const brandNamedData = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];
+        const contentRelevanceData = [0.6, -1.9, -0.9, -1.1, 0.9, 0.7, 1.6, -1.7, -0.3, -1.9, -1.1, 0.0, -1.9, -1.2, 0.6, 0.2, -1.1, 0.4, 1.2, -2.0, 1.2, 0.8, -0.6, -1.4, 1.8, -0.7, -1.6, -1.6, 1.4, 0.4, 1.2, 0.9, 0.1, 1.9, -0.5, 0.2, 1.3, 0.5, 1.4, 0.3, 0.8, -1.8];
+        const confidenceData = [66.7, 80.6, 84.0, 87.4, 91.3, 91.6, 91.9, 92.2, 92.5, 92.8, 93.0, 93.0, 93.2, 93.5, 93.6, 93.7, 93.9, 94.0, 94.2, 94.4, 94.6, 94.8, 94.9, 95.0, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95];
+        const brandRankData = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+        const brandRankCumAvgData = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0];
+        const articleMarkers = [{"date": "2025-11-24", "label": "Savor more, stress less: 5 ...", "article_number": "251981044387"}];
+        const activationDate = '2025-11-26';
+        const preCampaignVqs = 0.0;
+        const brandName = 'Fresh Express - Guaranteed Media Placements';
+
+        // ============================================================
+        // DATE INTERPOLATION HELPERS
+        // ============================================================
+        function parseLabelDate(label, referenceYear) {
+            const months = {
+                'Jan': 0, 'Feb': 1, 'Mar': 2, 'Apr': 3, 'May': 4, 'Jun': 5,
+                'Jul': 6, 'Aug': 7, 'Sep': 8, 'Oct': 9, 'Nov': 10, 'Dec': 11
+            };
+            const parts = label.split(' ');
+            if (parts.length < 2) return null;
+            const month = months[parts[0]];
+            const day = parseInt(parts[1]);
+            if (month === undefined || isNaN(day)) return null;
+            let year = referenceYear;
+            if (month < 6 && referenceYear === 2025) {
+                year = 2026;
+            }
+            return new Date(year, month, day);
+        }
+
+        // ============================================================
+        // CAMPAIGN IMPACT TIMELINE CHART
+        // ============================================================
+        const timelineCtx = document.getElementById('impactTimelineChart').getContext('2d');
+
+        new Chart(timelineCtx, {
+            type: 'line',
+            data: {
+                labels: campaignLabels,
+                datasets: [
+                    {
+                        label: 'AI Visibility Score Avg',
+                        data: visibilityData,
+                        borderColor: '#0066b3',
+                        backgroundColor: 'rgba(0, 102, 179, 0.08)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4,
+                        pointRadius: 4,
+                        pointBackgroundColor: '#0066b3',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2,
+                        pointHoverRadius: 6,
+                        order: 1
+                    },
+                    {
+                        label: 'Brand Named Rate',
+                        data: brandNamedData,
+                        borderColor: '#f7941d',
+                        backgroundColor: 'rgba(247, 148, 29, 0.08)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4,
+                        pointRadius: 4,
+                        pointBackgroundColor: '#f7941d',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2,
+                        pointHoverRadius: 6,
+                        order: 2
+                    },
+                    {
+                        label: '% Content Relevance',
+                        data: contentRelevanceData,
+                        borderColor: '#28a745',
+                        backgroundColor: 'transparent',
+                        borderWidth: 2,
+                        borderDash: [6, 4],
+                        fill: false,
+                        tension: 0.4,
+                        pointRadius: 3,
+                        pointBackgroundColor: '#28a745',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 1,
+                        pointHoverRadius: 5,
+                        order: 3
+                    },
+                    {
+                        label: 'Confidence',
+                        data: confidenceData,
+                        borderColor: '#999999',
+                        backgroundColor: 'transparent',
+                        borderWidth: 2,
+                        borderDash: [2, 4],
+                        fill: false,
+                        tension: 0.4,
+                        pointRadius: 2,
+                        pointBackgroundColor: '#999999',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 1,
+                        pointHoverRadius: 4,
+                        order: 4
+                    },
+                    {
+                        label: 'Brand Rank',
+                        data: brandRankData,
+                        borderColor: '#e67e22',
+                        backgroundColor: 'transparent',
+                        borderWidth: 2.5,
+                        fill: false,
+                        tension: 0.3,
+                        pointRadius: 3,
+                        pointBackgroundColor: '#e67e22',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 1,
+                        pointHoverRadius: 5,
+                        yAxisID: 'y1',
+                        order: 5
+                    },
+                    {
+                        label: 'Brand Rank Cumulative Avg',
+                        data: brandRankCumAvgData,
+                        borderColor: '#aaaaaa',
+                        backgroundColor: 'transparent',
+                        borderWidth: 2,
+                        borderDash: [6, 3],
+                        fill: false,
+                        tension: 0.3,
+                        pointRadius: 2,
+                        pointBackgroundColor: '#aaaaaa',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 1,
+                        pointHoverRadius: 4,
+                        yAxisID: 'y1',
+                        order: 6
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                layout: {
+                    padding: {
+                        top: 65
+                    }
+                },
+                interaction: {
+                    mode: 'index',
+                    intersect: false
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: '#333',
+                        titleColor: '#fff',
+                        bodyColor: '#fff',
+                        padding: 12,
+                        displayColors: true,
+                        callbacks: {
+                            label: function(context) {
+                                if (context.dataset.yAxisID === 'y1') {
+                                    return context.dataset.label + ': #' + context.parsed.y.toFixed(1);
+                                }
+                                return context.dataset.label + ': ' + context.parsed.y.toFixed(1) + '%';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: { display: false },
+                        ticks: {
+                            color: '#666',
+                            font: { size: 11 },
+                            maxRotation: 45,
+                            autoSkip: true,
+                            maxTicksLimit: 15
+                        }
+                    },
+                    y: {
+                        min: 0,
+                        max: 100,
+                        position: 'left',
+                        grid: { color: 'rgba(0,0,0,0.05)' },
+                        ticks: {
+                            color: '#666',
+                            font: { size: 11 },
+                            callback: function(value) { return value + '%'; }
+                        }
+                    },
+                    y1: {
+                        min: 1,
+                        max: 10,
+                        position: 'right',
+                        reverse: true,
+                        grid: { display: false },
+                        title: {
+                            display: true,
+                            text: 'Rank',
+                            color: '#e67e22',
+                            font: { size: 11 }
+                        },
+                        ticks: {
+                            color: '#e67e22',
+                            font: { size: 10 },
+                            stepSize: 1,
+                            callback: function(value) { return '#' + value; }
+                        }
+                    }
+                }
+            },
+            plugins: [{
+                id: 'timelineMarkers',
+                afterDraw: function(chart) {
+                    const ctx = chart.ctx;
+                    const xAxis = chart.scales.x;
+                    const yAxis = chart.scales.y;
+                    const labels = chart.data.labels;
+
+                    if (!labels || labels.length < 2) return;
+
+                    // Get campaign date range from labels
+                    const firstLabel = labels[0];
+                    const lastLabel = labels[labels.length - 1];
+                    const campaignStart = parseLabelDate(firstLabel, 2025);
+                    const campaignEnd = parseLabelDate(lastLabel, 2025);
+
+                    if (!campaignStart || !campaignEnd) return;
+
+                    const campaignDuration = campaignEnd - campaignStart;
+                    if (campaignDuration <= 0) return;
+
+                    // Calculate X position for a given date string (YYYY-MM-DD)
+                    function getXForDate(dateStr) {
+                        const targetDate = new Date(dateStr);
+                        const elapsed = targetDate - campaignStart;
+                        const ratio = elapsed / campaignDuration;
+                        const clampedRatio = Math.max(0, Math.min(1, ratio));
+                        const chartLeft = xAxis.left;
+                        const chartRight = xAxis.right;
+                        return chartLeft + (clampedRatio * (chartRight - chartLeft));
+                    }
+
+                    ctx.save();
+
+                    // --------------------------------------------------------
+                    // MONITORING START DATE MARKER - GREEN DASHED vertical line
+                    // --------------------------------------------------------
+                    var monitoringStartX;
+                    if (activationDate && activationDate !== '2025-11-26') {
+                        monitoringStartX = getXForDate(activationDate);
+                    } else {
+                        monitoringStartX = xAxis.getPixelForValue(0);
+                    }
+
+                    // Green dashed line
+                    ctx.beginPath();
+                    ctx.setLineDash([8, 5]);
+                    ctx.strokeStyle = '#28a745';
+                    ctx.lineWidth = 2.5;
+                    ctx.moveTo(monitoringStartX, yAxis.top);
+                    ctx.lineTo(monitoringStartX, yAxis.bottom);
+                    ctx.stroke();
+
+                    // Monitoring Start label
+                    var monitoringLabel = 'Monitoring Start date';
+                    ctx.font = 'bold 10px sans-serif';
+                    var monLabelWidth = ctx.measureText(monitoringLabel).width;
+                    var labelBoxWidth = monLabelWidth + 12;
+                    // Clamp so label doesn't overflow left edge
+                    var labelX = Math.max(xAxis.left + labelBoxWidth / 2, monitoringStartX);
+                    ctx.setLineDash([]);
+                    ctx.fillStyle = '#28a745';
+                    ctx.beginPath();
+                    ctx.roundRect(labelX - labelBoxWidth / 2, yAxis.top - 22, labelBoxWidth, 16, 3);
+                    ctx.fill();
+                    ctx.fillStyle = '#ffffff';
+                    ctx.textAlign = 'center';
+                    ctx.fillText(monitoringLabel, labelX, yAxis.top - 9);
+
+                    // --------------------------------------------------------
+                    // PRE-CAMPAIGN BASELINE - horizontal dashed line
+                    // --------------------------------------------------------
+                    if (preCampaignVqs && preCampaignVqs > 0) {
+                        var baselineY = yAxis.getPixelForValue(preCampaignVqs);
+                        ctx.beginPath();
+                        ctx.setLineDash([4, 6]);
+                        ctx.strokeStyle = 'rgba(0, 102, 179, 0.35)';
+                        ctx.lineWidth = 1.5;
+                        ctx.moveTo(xAxis.left, baselineY);
+                        ctx.lineTo(xAxis.right, baselineY);
+                        ctx.stroke();
+                        // Baseline label at right edge
+                        ctx.setLineDash([]);
+                        ctx.font = '10px sans-serif';
+                        ctx.fillStyle = 'rgba(0, 102, 179, 0.6)';
+                        ctx.textAlign = 'right';
+                        ctx.fillText('Baseline ' + preCampaignVqs.toFixed(1) + '%', xAxis.right - 4, baselineY - 4);
+                    }
+
+                    // --------------------------------------------------------
+                    // BRAND NAME ANNOTATION on chart
+                    // --------------------------------------------------------
+                    ctx.font = 'bold 12px sans-serif';
+                    ctx.fillStyle = 'rgba(0, 102, 179, 0.3)';
+                    ctx.textAlign = 'center';
+                    var chartCenterX = (xAxis.left + xAxis.right) / 2;
+                    var chartCenterY = (yAxis.top + yAxis.bottom) / 2;
+                    ctx.fillText(brandName, chartCenterX, chartCenterY);
+
+                    // --------------------------------------------------------
+                    // ARTICLE PUBLISH MARKERS - PURPLE DASHED vertical lines
+                    // with date interpolation
+                    // --------------------------------------------------------
+                    if (typeof articleMarkers !== 'undefined' && articleMarkers && articleMarkers.length > 0) {
+                        articleMarkers.forEach(function(marker, idx) {
+                            if (!marker.date) return;
+
+                            var articleX = getXForDate(marker.date);
+
+                            // Skip if date is way outside range
+                            var targetDate = new Date(marker.date);
+                            var ratio = (targetDate - campaignStart) / campaignDuration;
+                            if (ratio < -0.1 || ratio > 1.1) return;
+
+                            // Purple dashed line
+                            ctx.beginPath();
+                            ctx.setLineDash([6, 4]);
+                            ctx.strokeStyle = '#9b59b6';
+                            ctx.lineWidth = 2;
+                            ctx.moveTo(articleX, yAxis.top);
+                            ctx.lineTo(articleX, yAxis.bottom);
+                            ctx.stroke();
+
+                            // Article label (stagger vertically if multiple)
+                            var labelOffset = 40 + (idx * 18);
+                            var articleLabel = marker.label || 'Article Published';
+                            if (articleLabel.length > 30) {
+                                articleLabel = articleLabel.substring(0, 27) + '...';
+                            }
+                            ctx.font = 'bold 9px sans-serif';
+                            var artTextWidth = ctx.measureText(articleLabel).width;
+                            ctx.setLineDash([]);
+                            ctx.fillStyle = '#9b59b6';
+                            ctx.beginPath();
+                            ctx.roundRect(articleX - artTextWidth / 2 - 4, yAxis.top - labelOffset, artTextWidth + 8, 14, 3);
+                            ctx.fill();
+                            ctx.fillStyle = '#ffffff';
+                            ctx.textAlign = 'center';
+                            ctx.fillText(articleLabel, articleX, yAxis.top - labelOffset + 10);
+                        });
+                    }
+
+                    ctx.restore();
+                }
+            }]
+        });
+    </script>
+</body>
+</html>
